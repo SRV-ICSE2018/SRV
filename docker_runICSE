@@ -1,0 +1,174 @@
+hostfolder=/root/result
+callString=1
+guided=${1}
+refine=0
+times=-1
+period="1,30,0,0"
+resultFolder="/result"
+slicing=${2}
+predictMode=${3}
+
+
+#bmp_0
+./docker_run ${hostfolder} TestBMPwithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#pobs
+./docker_run ${hostfolder} TestPobsParserWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#expression
+./docker_run ${hostfolder} TestExpressionParserWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#jercho
+./docker_run ${hostfolder} TestJerichoParserWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#HTML_m0
+./docker_run ${hostfolder} TestHTMLParserWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+
+sleep 2h
+
+#5*4=20 
+
+
+#soot_s0
+./docker_run ${hostfolder} TestSootCWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#soot_m0
+./docker_run ${hostfolder} TestSootCWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#soot_m3
+./docker_run_bug ${hostfolder} TestSootCWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} soot-c bug6 &
+
+#ftp_2
+./docker_run_bug ${hostfolder} TestFTPClientWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} ftpclient bug2 &
+
+#bloat_m2
+./docker_run_bug ${hostfolder} TestBloatWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} bloat bug2 &
+
+
+sleep 2h
+
+#5*4=20 
+
+
+#FTP_0
+./docker_run ${hostfolder} TestFTPClientWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode}  &
+
+#Jlex_s1
+./docker_run_bug ${hostfolder} TestJLexWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} jlex bug1 &
+
+#bmp_1
+./docker_run_bug ${hostfolder} TestBMPwithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} bmpdecoder bug1 &
+
+#soot_s3
+./docker_run_bug ${hostfolder} TestSootCWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} soot-c bug3 &
+
+#Jlex_m1
+./docker_run_bug ${hostfolder} TestJLexWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} jlex bug4 &
+
+
+sleep 2h
+
+#5*4=20 
+
+#nano
+./docker_run ${hostfolder}  TestNanoXMLwithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#xml_s
+./docker_run ${hostfolder}  TestXmlParserWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#antlr
+./docker_run ${hostfolder}  TestAntlrUDLWithSlicing ${callString} ${guided} 1 ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#Jlex_s0
+./docker_run ${hostfolder}  TestJLexWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#soot_m1
+./docker_run_bug ${hostfolder} TestSootCWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} soot-c bug4 &
+
+
+sleep 2h
+
+#5*4=20 
+
+#soot_m2
+./docker_run_bug ${hostfolder} TestSootCWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} soot-c bug5 &
+
+
+#Jlex_m0
+./docker_run ${hostfolder}  TestJLexWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+
+#bloat_s0
+./docker_run ${hostfolder}  TestBloatWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#bloat_m0
+./docker_run ${hostfolder}  TestBloatWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#soot_s1
+./docker_run_bug ${hostfolder} TestSootCWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} soot-c bug1 &
+
+
+sleep 2h
+
+#5*4=20 
+
+
+#soot_s2
+./docker_run_bug ${hostfolder} TestSootCWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} soot-c bug2 &
+
+#bloat_m1
+./docker_run_bug ${hostfolder} TestBloatWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} bloat bug1 &
+
+#bloat_m3
+./docker_run_bug ${hostfolder} TestBloatWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} bloat bug3 &
+
+#bmp_2
+./docker_run_bug ${hostfolder} TestBMPwithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} bmpdecoder bug2 &
+
+#bmp_3
+./docker_run_bug ${hostfolder} TestBMPwithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} bmpdecoder bug3 &
+
+
+sleep 2h
+
+#5*4=20 
+
+#ftp_1
+./docker_run_bug ${hostfolder} TestFTPClientWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} ftpclient bug1 &
+
+#ftp_3
+./docker_run_bug ${hostfolder} TestFTPClientWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} ftpclient bug3 &
+
+#Jlex_s2
+./docker_run_bug ${hostfolder} TestJLexWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} jlex bug2 &
+
+#Jlex_s3
+./docker_run_bug ${hostfolder} TestJLexWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} jlex bug3 &
+
+#Jlex_m2
+./docker_run_bug ${hostfolder} TestJLexWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} jlex bug5 &
+
+
+sleep 2h
+
+#5*4=20 
+
+#Jlex_m3
+./docker_run_bug ${hostfolder} TestJLexWithSlicingForMulti ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} jlex bug6 &
+
+#rohino
+./docker_run ${hostfolder} TestRhinoWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#jpat
+./docker_run ${hostfolder} TestJPATWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#fastjason
+./docker_run ${hostfolder} TestFastJSONParserWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+#HTML_s
+./docker_run ${hostfolder} TestHTMLParserDWithSlicing ${callString} ${guided} ${refine} ${times} ${period} ${resultFolder} ${slicing} ${predictMode} &
+
+
+
+
